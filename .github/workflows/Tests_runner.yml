@@ -65,10 +65,10 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore
-      run: dotnet restore Lab5/Lab5.sln
+      run: dotnet restore Lab6/Lab6.sln
 
     - name: Build
-      run: dotnet build Lab5/Lab5.sln --configuration ${{ matrix.configuration }} --no-restore
+      run: dotnet build Lab6/Lab6.sln --configuration ${{ matrix.configuration }} --no-restore
 
     - name: Run tests (Purple→Blue→Green→White) (vstest)
       id: cascade
@@ -76,12 +76,11 @@ jobs:
       env:
         CFG: ${{ matrix.configuration }}
       run: |
-        $proj = "Lab5test/Lab5test.csproj"
+        $proj = "Lab6test/Lab6test.csproj"
         Write-Host "Building test project..."
         dotnet build $proj -c $Env:CFG
 
-        # Путь к dll — поправь, если у тебя другой target framework
-        $dll = Join-Path $PWD "Lab5test\bin\$Env:CFG\net8.0\Lab5test.dll"
+        $dll = Join-Path $PWD "Lab6test\bin\$Env:CFG\net8.0\Lab6test.dll"
         Write-Host "Test DLL: $dll"
         if (-not (Test-Path $dll)) {
           Write-Error "DLL не найдена: $dll"

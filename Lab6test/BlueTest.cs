@@ -1091,9 +1091,13 @@ namespace Lab6test
         [TestMethod]
         public void Test_FindMaxMin()
         {
-            var matrix = new int[,] { { -2, 10 }, { 5, 0 } };
-            Assert.AreEqual(10, _main.FindMax(matrix));
-            Assert.AreEqual(-2, _main.FindMin(matrix));
+            var matrix = new int[,] { { -2, 10 }, { -5, 0 } };
+            Assert.AreEqual(10, _main.FindMax(matrix, out int i, out int j));
+            Assert.AreEqual(0, i);
+            Assert.AreEqual(1, j);
+            Assert.AreEqual(-5, _main.FindMin(matrix, out i, out j));
+            Assert.AreEqual(1, i);
+            Assert.AreEqual(0, j);
         }
 
         [TestMethod]

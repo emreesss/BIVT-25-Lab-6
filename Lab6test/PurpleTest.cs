@@ -1587,7 +1587,7 @@
             var inputA = new double[10] { -0.5, -0.2, -0.8, -0.1, 0.1, 0.3, 0.7, 0.4, 0.4, -0.4 };
             var inputB = new double[10] { 1, 1, 0.8, 1, 1, 1.3, 1.7, 4.4, 0.6, 1.2 };
             var inputH = new double[10] { 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1 };
-            var answer = new double[10] { 2, 1, 1, 1, 1, 1, 1, 1, 0, 2 };
+            var answer = new double[10] { 2, 2, 1, 2, 1, 1, 1, 1, 0, 2 };
             var test = new double[answer.Length];
             // Act
             for (int i = 0; i < answer.Length; i++)
